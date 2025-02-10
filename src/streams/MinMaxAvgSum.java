@@ -18,21 +18,11 @@ public class MinMaxAvgSum {
 
         Optional<Integer> minResult = employees.stream()
                 .map(employee -> employee.getEid())
-                .min(new Comparator<Integer>() {
-                    @Override
-                    public int compare(Integer o1, Integer o2) {
-                        return o1 - o2;
-                    }
-                });
+                .min((Integer a, Integer b) -> a - b);
         System.out.println(minResult.get());
 
         Optional<Employee> maxResult = employees.stream()
-                .max(new Comparator<Employee>() {
-                    @Override
-                    public int compare(Employee o1, Employee o2) {
-                        return o1.getEid() - o2.getEid();
-                    }
-                });
+                .max((Employee e1, Employee e2) -> e1.getEid() - e2.getEid());
         System.out.println(maxResult.get().getEid());
 
         int sum = employees.stream()

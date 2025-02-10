@@ -19,7 +19,7 @@ public class StreamsMap {
         employees.add(new Employee(4, "Harish", 15000.0, Arrays.asList(numbers4)));
 
         List<Integer> result = employees.stream()
-                        .map((employee) -> employee.getEid())
+                        .map(Employee::getEid)
                                 .collect(Collectors.toList());
         System.out.println(result);
     }
